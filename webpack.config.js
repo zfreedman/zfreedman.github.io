@@ -1,12 +1,14 @@
 // use ES5 in this file
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var webpack = require("webpack");
 
 module.exports = {
   entry: './app/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'index_bundle.js'
+    path: path.resolve(__dirname, './'),
+    filename: 'index_bundle.js',
+    publicPath: "/"
   },
   module: {
     rules: [
@@ -31,5 +33,5 @@ module.exports = {
       template: './index.html'
     })
   ],
-  mode: "development"
+  mode: process.env.NODE_ENV === "production" ? "production" : "development"
 };
