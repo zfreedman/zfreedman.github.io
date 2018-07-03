@@ -30,7 +30,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html'
+      template: './app/index.html'
     })
   ],
   mode: process.env.NODE_ENV === "production" ? "production" : "development"
