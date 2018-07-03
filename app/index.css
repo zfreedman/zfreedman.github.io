@@ -16,6 +16,7 @@ body {
   font-family: montserrat;
 
   align-items: center;
+  color: white;
   display: flex;
   height: 100vh;
   justify-content: center;
@@ -24,5 +25,17 @@ body {
 
 .centerpiece {
   font-size: 84px;
-  color: white;
+}
+
+
+@media screen and (max-width: 786px) {
+  .centerpiece {
+    font-size: 48px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .centerpiece {
+    font-size: 36px;
+  }
 }
