@@ -1,0 +1,28 @@
+@font-face {
+  font-family: montserrat;
+  src: url("./fonts/Montserrat-Regular.ttf");
+}
+
+body {
+  /* https://www.w3schools.com/cssref/pr_background-position.asp */
+  background-attachment: fixed;
+  background-color: black;
+  background-image: url("./imgs/background copy.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+
+  /* https://github.com/JulietaUla/Montserrat */
+  font-family: montserrat;
+
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  margin: 0;
+}
+
+.centerpiece {
+  font-size: 84px;
+  color: white;
+}
