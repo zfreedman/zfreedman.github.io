@@ -1,15 +1,22 @@
 "use strict";
 import React from "react";
 import ReactDOM from "react-dom";
+
 require("./index.css");
+import "font-awesome/css/font-awesome.min.css";
+
+import BottomBar from "./components/bottomBar";
 
 // import Centerpiece from "./components/centerpiece";
 
 class App extends React.Component {
   render() {
     return (
-      <div className="centerpiece">
-        Zach Freedman
+      <div className="flexContainer">
+        <div className="centerpiece">
+          <div>Zach</div>
+        </div>
+        <BottomBar />
       </div>
     );
   }

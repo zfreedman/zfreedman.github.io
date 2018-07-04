@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/zfreedman/zfreedman.github.io#readme",
   "dependencies": {
+    "font-awesome": "^4.7.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
   },

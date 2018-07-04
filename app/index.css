@@ -15,18 +15,42 @@ body {
   /* https://github.com/JulietaUla/Montserrat */
   font-family: montserrat;
 
-  align-items: center;
-  color: white;
-  display: flex;
-  height: 100vh;
-  justify-content: center;
   margin: 0;
+}
+
+.bottomBar {
+  display: flex;
+  flex-direction: row;
 }
 
 .centerpiece {
   font-size: 84px;
 }
 
+.flexContainer {
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+}
+
+.socialLink {
+  align-items: center;
+  background-color: black;
+  border-radius: 25%;
+  font-size: 30px;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  margin: 0 5px;
+  width: 50px;
+}
+.socialLink a:visited {
+  color: white;
+  text-decoration: none;
+}
 
 @media screen and (max-width: 786px) {
   .centerpiece {
