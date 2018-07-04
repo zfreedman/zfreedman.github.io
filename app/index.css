@@ -15,19 +15,24 @@ body {
   /* https://github.com/JulietaUla/Montserrat */
   font-family: montserrat;
 
+  /* height: 200vh; */
   margin: 0;
 }
 
 .bottomBar {
+  bottom: 20px;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
 }
 
 .centerpiece {
   font-size: 84px;
 }
 
-.flexContainer {
+.container {
   align-items: center;
   color: white;
   display: flex;
