@@ -10,7 +10,7 @@ class Stocks extends React.Component {
 
     return (
       <div>
-        {stocks === undefined ? "Loading" : JSON.stringify(stocks)}
+        {stocks === undefined ? "Loading" : this.getStockOutput(stocks)}
       </div>
     );
   }
@@ -18,6 +18,23 @@ class Stocks extends React.Component {
   componentDidMount () {
     this.props.dispatch(getStocks());
   }
+
+  getStockOutput = stocks => Object.keys(stocks).map(ticker => {
+    return (
+      <div>
+        <h2>{ticker}</h2>
+        <ul>
+        {
+          stocks[ticker].map(stats => (
+            <li>
+              <b>{stats.date}</b>: {stats.close}
+            </li>
+          ))
+        }
+        </ul>
+      </div>
+    );
+  });
 }
 
 const mapStateToProps = ({ stocks }) => ({ stocks });
