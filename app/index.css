@@ -7,7 +7,7 @@ body {
   /* https://www.w3schools.com/cssref/pr_background-position.asp */
   background-attachment: fixed;
   background-color: black;
-  background-image: url("./imgs/background copy.jpg");
+  background-image: url("./imgs/background.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;
