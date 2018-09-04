@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import React from "react";
 
 import { getStocks } from "../actions/stocks";
+import StocksControl from "./stocksControl";
 
 class Stocks extends React.Component {
   render () {
@@ -9,7 +10,9 @@ class Stocks extends React.Component {
 
     return (
       <div>
-        {stocks === undefined ? "Loading" : this.getStockOutput(stocks)}
+        <div className="title">Stocks</div>
+        <StocksControl maxDate={10} minDate={0} />
+        {/* {stocks === undefined ? "Loading" : this.getStockOutput(stocks)} */}
       </div>
     );
   }
