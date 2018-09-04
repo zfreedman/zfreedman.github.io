@@ -5,7 +5,6 @@ import { getStocks } from "../actions/stocks";
 
 class Stocks extends React.Component {
   render () {
-    console.log(this.state);
     const { stocks } = this.props;
 
     return (
