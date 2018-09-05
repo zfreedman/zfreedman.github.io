@@ -5,7 +5,9 @@ class StockGraph extends React.Component {
   render () {
     console.log(this.props.stocks);
     return (
-      <div id="chart-area"></div>
+      <div className="stocks--graph">
+        <div id="chart-area"></div>
+      </div>
     );
   }
 
@@ -23,19 +25,12 @@ class StockGraph extends React.Component {
     const margin = { left:80, right:100, top:50, bottom:100 },
       height = 500 - margin.top - margin.bottom, 
       width = 800 - margin.left - margin.right;
-    const svg = d3.select("#chart-area").append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-      .style("background-color", "grey");
+    const svg = d3.select("#chart-area").append("svg");
 
-    const g = svg.append("g")
-      .attr("transform", "translate(" + margin.left + 
-          ", " + margin.top + ")");
+    const g = svg.append("g");
 
     // Time parser for x-scale
     const parseTime = d3.timeParse("%Y-%m-%d");
-    // For tooltip
-    const bisectDate = d3.bisector(function(d) { return d.year; }).left;
 
     // Scales
     const x = d3.scaleTime().range([0, width]);
@@ -45,48 +40,34 @@ class StockGraph extends React.Component {
       .range(d3.schemeCategory10);
 
     // Axis generators
-    const xAxisCall = d3.axisBottom();
+    const xAxisCall = d3.axisBottom().ticks(5);
     const yAxisCall = d3.axisLeft();
-      // .ticks(6)
-      // .tickFormat(function(d) { return parseInt(d / 1000) + "k"; });
 
     // Axis groups
     const xAxis = g.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")");
+      .attr("class", "stocks--graph--axis stocks--graph--axis__x");
     const yAxis = g.append("g")
-      .attr("class", "y axis");
+      .attr("class", "stocks--graph--axis stocks--graph--axis__y");
 
     // x axis label
     xAxis.append("text")
-      .attr("y", 0)
-      .attr("x", width / 2)
-      .style("font-size", "3em")
-      .attr("text-anchor", "middle")
-      .text("Date")
-      .attr("fill", "blue");
+      .text("Date");
 
     // Y-Axis label
     yAxis.append("text")
-      .attr("class", "axis-title")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .attr("fill", "#5D6971")
-      .text("Price ($)")
-      .style("font-size", "3em");
+      .text("USD");
 
     // Line path generator
     const line = d3.line()
-      .x(function(d) { return x(d.date); })
-      .y(function(d) { return y(d.val); });
+      .x(d => x(d.date))
+      .y(d => y(d.val));
 
     // Legend
     const legend = g.append("g")
-      .attr("transform", `translate(${width - 10}, ${0})`)
-      .attr("height", 50)
-      .attr("width", 50);
+      .attr("class", "stocks--graph--legend");
+      // .attr("transform", `translate(${width - 10}, ${0})`)
+      // .attr("height", 50)
+      // .attr("width", 50);
     Object.keys(this.props.stocks).forEach((d, i) => {
       const legendRow = legend.append("g")
         .style(
@@ -94,20 +75,14 @@ class StockGraph extends React.Component {
         );
 
       legendRow.append("rect")
-        .attr("width", this.getEMString(1))
-        .attr("height", this.getEMString(.3))
-        .attr("y", this.getEMString(.5))
         .attr("fill", color(d));
       legendRow.append("text")
-        .attr("x", this.getEMString(-1))
-        .attr("y", this.getEMString(1))
-        .attr("text-anchor", "end")
         .text(d);
     });
 
     // bind to this for use in other functions
     const that = {
-      bisectDate, color, g, height, line, parseTime, width, x, xAxis,
+      color, g, height, line, parseTime, width, x, xAxis,
       xAxisCall, y, yAxis, yAxisCall
     };
     for (let k in that) {

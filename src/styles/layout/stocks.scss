@@ -1,6 +1,80 @@
+#chart-area {
+  & > svg {
+    background-color: black;
+    height: $stock-graph-height + $stock-graph-margin-top + $stock-graph-margin-bottom;
+    width: $stock-graph-width + $stock-graph-margin-left + $stock-graph-margin-right;
+
+    & > g {
+      transform: translate($stock-graph-margin-left, $stock-graph-margin-top);
+    }
+  }
+}
+
+.stocks--graph {
+  color: white;
+
+  &--axis {
+    font-size: 3rem;
+    text-anchor: middle;
+
+    & > text {
+      fill: currentColor;
+    }
+
+    & > .tick {
+      font-size: 1.5rem;
+    }
+
+    &__x {
+      transform: translate(0, $stock-graph-height);
+
+      & > text {
+        transform: translate($stock-graph-width/2, 6rem);
+      }
+
+      & > .tick {
+        // transform: rotate(-45deg);
+      }
+    }
+
+    &__y {
+
+      & > text {
+        transform: rotate(-90deg) translate(
+          -$stock-graph-height/2, -4.5rem
+        );
+      }
+
+      & > .tick {
+        text-anchor: end;
+      }
+    }
+  }
+
+  &--legend {
+    fill: white;
+    height: 5rem;
+    transform: translate($stock-graph-width - 1rem, 0);
+    width: 6rem;
+
+    & > g {
+      & > rect {
+        height: .3em;
+        transform: translate(0, .5em);
+        width: 1em;
+      }
+
+      & > text {
+        text-anchor: end;
+        transform: translate(-1em, 1em)
+      }
+    }
+  }
+}
+
 .stocks--slider {
-  width: 20em;
-  
+  width: 20rem;
+
   & button {
     background-color: pink;
   }
