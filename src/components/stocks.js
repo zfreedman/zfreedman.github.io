@@ -3,6 +3,7 @@ import React from "react";
 
 import { getStocks } from "../actions/stocks";
 import StocksControl from "./stocksControl";
+import StocksGraph from "./stocksGraph";
 
 class Stocks extends React.Component {
   render () {
@@ -12,6 +13,7 @@ class Stocks extends React.Component {
       <div>
         <div className="title">Stocks</div>
         <StocksControl maxDate={10} minDate={0} />
+        <StocksGraph stocks={stocks} />
         {/* {stocks === undefined ? "Loading" : this.getStockOutput(stocks)} */}
       </div>
     );

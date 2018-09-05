@@ -1,7 +1,5 @@
-import PropTypes from "prop-types";
 import React from "react";
 import Slider from "@material-ui/lab/Slider";
-import { withStyles } from "@material-ui/core/styles";
 
 /*
 overriding css classes: https://material-ui.com/customization/overrides/#overriding-with-classes
@@ -15,7 +13,7 @@ class StocksControl extends React.Component {
   };
 
   render () {
-    const { classes, maxDate, minDate } = this.props;
+    const { maxDate, minDate } = this.props;
     const { value } = this.state;
 
     return (
@@ -40,4 +38,4 @@ class StocksControl extends React.Component {
   };
 }
 
-export default withStyles(styles)(StocksControl);
+export default StocksControl;
