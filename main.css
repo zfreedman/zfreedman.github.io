@@ -10,8 +10,53 @@ html {
   font-size: 62.5%; }
 
 body {
-  font-family: "Lato"; }
+  font-family: "Roboto", sans-serif; }
+
+.title {
+  font-size: 3em; }
 
 .header {
   font-size: 6em; }
+
+#chart-area > svg {
+  background-color: black;
+  height: 50rem;
+  width: 80rem; }
+  #chart-area > svg > g {
+    transform: translate(8rem, 5rem); }
+
+.stocks--graph {
+  color: white; }
+  .stocks--graph--axis {
+    font-size: 3rem;
+    text-anchor: middle; }
+    .stocks--graph--axis > text {
+      fill: currentColor; }
+    .stocks--graph--axis > .tick {
+      font-size: 1.5rem; }
+    .stocks--graph--axis__x {
+      transform: translate(0, 35rem); }
+      .stocks--graph--axis__x > text {
+        transform: translate(31rem, 6rem); }
+    .stocks--graph--axis__y > text {
+      transform: rotate(-90deg) translate(-17.5rem, -4.5rem); }
+    .stocks--graph--axis__y > .tick {
+      text-anchor: end; }
+  .stocks--graph--legend {
+    fill: white;
+    height: 5rem;
+    transform: translate(61rem, 0);
+    width: 6rem; }
+    .stocks--graph--legend > g > rect {
+      height: .3em;
+      transform: translate(0, 0.5em);
+      width: 1em; }
+    .stocks--graph--legend > g > text {
+      text-anchor: end;
+      transform: translate(-1em, 1em); }
+
+.stocks--slider {
+  width: 20rem; }
+  .stocks--slider button {
+    background-color: pink; }
 
